@@ -2,18 +2,18 @@ import { useRef, useState } from "react";
 import Image from 'next/image';
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 
-export type CardButtonProps = {
+export type HomeCardButtonProps = {
     icon?: string;
     text: string;
     onClick: () => void
 };
 
-const CardButton = ({ icon, text, onClick }: CardButtonProps) => {
+const HomeCardButton = ({ icon, text, onClick }: HomeCardButtonProps) => {
 
     return (
         <div className="md:px-10 px-2 py-2 md:w-auto w-full">
             <div
-                className="group flex md:flex-col flex-row justify-between items-center cursor-pointer rounded-lg border-0 p-5 transition-colors bg-gray-100 hover:bg-yellow-400"
+                className="group flex md:flex-col flex-row justify-between items-center cursor-pointer rounded-lg border-0 p-5 transition-colors bg-gray-100 hover:bg-primary"
                 onClick={() => onClick()}
             >
                 <div className="flex items-center md:flex-col flex-row">
@@ -36,4 +36,4 @@ const CardButton = ({ icon, text, onClick }: CardButtonProps) => {
     );
 };
 
-export default CardButton;
+export default HomeCardButton;

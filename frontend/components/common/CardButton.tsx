@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from 'next/image';
-import { ChevronRightIcon } from "@heroicons/react/16/solid";
 
 export type CardButtonProps = {
     icon?: string;
@@ -11,22 +10,22 @@ export type CardButtonProps = {
 const CardButton = ({ icon, text, onClick }: CardButtonProps) => {
 
     return (
-        <div className="md:px-10 px-2 py-2 md:w-auto w-full">
+        <div className="p-1 md:w-auto w-full">
             <div
-                className="group flex items-center cursor-pointer rounded-lg border-0 p-5 transition-colors bg-gray-100 hover:bg-yellow-400"
+                className="group w-full h-full flex justify-center items-center cursor-pointer rounded-sm border border-gray-200 p-5 transition-colors bg-gray-100 hover:border-gray-500"
                 onClick={() => onClick()}
             >
-                <div className="flex items-center flex-col">
+                <div className="flex flex-col justify-between items-center min-h-20 h-full">
                     {icon &&
                         <Image
                             src={icon}
-                            className={`w-16 h-16`}
+                            className={`w-9 h-9`}
                             alt="icon"
                             width={100}
                             height={100}
                         />
                     }
-                    <p className="m-0 max-w-[30ch] text-sm opacity-80 text-center">
+                    <p className="m-0 max-w-[30ch] text-md font-medium opacity-80 text-center">
                         {text}
                     </p>
                 </div>
