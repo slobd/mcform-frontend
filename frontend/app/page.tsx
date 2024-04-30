@@ -6,7 +6,23 @@ import { CardButtonType, MCFormDataType } from "@/utils/types";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import ConfirmModal from "@/components/modal/confirmModal";
 import CategoryForm from "@/components/mcform/CategoryForm";
-import ZipCodePanel from "@/components/mcform/ZipCodeForm";
+import LocationForm from "@/components/mcform/LocationForm";
+import PropertyForm from "@/components/mcform/PropertyForm";
+import DetailedTypeForm from "@/components/mcform/DetailedTypeForm";
+import LivingSpaceSizeForm from "@/components/mcform/LivingSpaceSizeForm";
+import LocatedAreaSizeForm from "@/components/mcform/LocatedAreaSizeForm";
+import RoomCountForm from "@/components/mcform/RoomCountForm";
+import BuildYearForm from "@/components/mcform/BuildYearForm";
+import RentedStatusForm from "@/components/mcform/RentedStatusForm";
+import QualityStandardForm from "@/components/mcform/QualityStandardForm";
+import TimelineForm from "@/components/mcform/TimelineForm";
+import UserInfoForm from "@/components/mcform/UserInfoForm";
+import Review from "@/components/mcform/Review";
+import AppointmentForm from "@/components/mcform/AppointmentForm";
+import AppointmentInfoForm from "@/components/mcform/AppointmentInfoForm";
+import AppointmentAddtionalInfoForm from "@/components/mcform/AppointmentAddtionalInfoForm";
+import AppointmentDateTimeForm from "@/components/mcform/AppointmentDateTimeForm";
+
 const cardButtonData: CardButtonType[] = [
   { value: "sell", icon: "/assets/icons/home/sell.svg", text: "Ich möchte verkaufen" },
   { value: "buy", icon: "/assets/icons/home/buy.svg", text: "Ich möchte kaufen" },
@@ -14,20 +30,47 @@ const cardButtonData: CardButtonType[] = [
 ]
 
 const defaultMCFormData: MCFormDataType = {
-  type: "",
-  zipCode: "",
+  category: "",
+  location: "",
+  property: "",
+  detailedType: "",
+  livingSpaceSize: "",
+  locatedAreaSize: "",
+  roomCount: "",
+  builtYear: "",
+  rentedStatus: "",
+  qualityStandard: "",
+  timeline: "",
+  userInfo: {
+    gender: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    postalCode: "",
+    city: "",
+    street: "",
+    houseNumber: "",
+  },
+  appointment: {
+    type: "",
+    date: "",
+    time: "",
+  },
+  reasonForSale: "",
+  netRent: "",
 }
 export default function Home() {
   const [cancelConfirmModal, setCancelConfirmModal] = useState(false);
   const [MCFormData, setMCFormData] = useState<MCFormDataType>(defaultMCFormData);
   const [showMCForm, setShowMCForm] = useState(false);
-  const [totalStep, setTotalStep] = useState(9);
+  const [totalStep, setTotalStep] = useState(12);
   const [currentStep, setCurrentStep] = useState(2);
 
   const handleSelect = (value: string) => {
     setMCFormData({
       ...MCFormData,
-      type: value
+      category: value
     })
     setShowMCForm(true);
   }
@@ -43,6 +86,10 @@ export default function Home() {
       setCurrentStep(2);
     }
     setCancelConfirmModal(false);
+  }
+  
+  const finished = () => {
+    setShowMCForm(false);
   }
 
   return (
@@ -105,24 +152,140 @@ export default function Home() {
             />
           </div>
           <div className="flex justify-center">
-            <div className="md:px-20 px-4 md:py-32 py-8 max-w-4xl w-full">
-                {currentStep == 1 &&
-                  <CategoryForm
-                    MCFormData={MCFormData}
-                    setMCFormData={setMCFormData}
-                    backToPrevious={() => setCurrentStep(prev => prev - 1)}
-                    continueToNext={() => setCurrentStep(prev => prev + 1)}
-                  />
-                }
-                {currentStep == 2 &&
-                  <ZipCodePanel
-                    MCFormData={MCFormData}
-                    setMCFormData={setMCFormData}
-                    backToPrevious={() => setCurrentStep(prev => prev - 1)}
-                    continueToNext={() => setCurrentStep(prev => prev + 1)}
-                  />
-                }
+            <div className={`max-w-4xl w-full md:px-20 px-4 md:pt-32 pt-8 pb-8`}>
+              {currentStep == 1 &&
+                <CategoryForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 2 &&
+                <LocationForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 3 &&
+                <PropertyForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 4 &&
+                <DetailedTypeForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 5 &&
+                <LivingSpaceSizeForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {/* {currentStep == 6 &&
+                <LocatedAreaSizeForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              } */}
+              {currentStep == 6 &&
+                <RoomCountForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 7 &&
+                <BuildYearForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 8 &&
+                <RentedStatusForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 9 &&
+                <QualityStandardForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 10 &&
+                <TimelineForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 11 &&
+                <UserInfoForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  // continueToNext={() => setCurrentStep(prev => prev + 1)}
+                  continueToNext={() => finished()}
+                />
+              }
+              {/* {currentStep == 12 &&
+                <AppointmentForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 13 &&
+                <AppointmentInfoForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 14 &&
+                <AppointmentAddtionalInfoForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              }
+              {currentStep == 15 &&
+                <AppointmentDateTimeForm
+                  MCFormData={MCFormData}
+                  setMCFormData={setMCFormData}
+                  backToPrevious={() => setCurrentStep(prev => prev - 1)}
+                  continueToNext={() => setCurrentStep(prev => prev + 1)}
+                />
+              } */}
             </div>
+          </div>
+          <div>
+            <Review />
           </div>
         </div>
       }

@@ -68,7 +68,7 @@ const ConfirmModal = ({ open, setOpen, handler, title, description }: ConfirmMod
                                 </div>
                                 <div className="flow-root">
                                     <div className='flex flex-row justify-end items-center gap-4'>
-                                        <Button className="px-5" color="primary" onClick={() => handler(true)}> Ja </Button>
+                                        <Button className="px-5" color="yellow" onClick={() => handler(true)}> Ja </Button>
                                         <Button color="transparent" onClick={() => handler(false)}> Nein </Button>
                                     </div>
                                 </div>

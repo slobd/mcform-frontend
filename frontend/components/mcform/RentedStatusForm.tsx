@@ -4,17 +4,17 @@ import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
 
 const cardButtonData: CardButtonType[] = [
-    { value: "sell", icon: "/assets/icons/mcform/sale.svg", text: "Verkauf" },
-    { value: "buy", icon: "/assets/icons/mcform/purchase.svg", text: "Kauf" },
-    { value: "miscellaneous", icon: "/assets/icons/mcform/miscellaneous.svg", text: "Sonstiges" },
+    { value: "ownUse", icon: "/assets/icons/mcform/ownUse.svg", text: "Eigennutzung" },
+    { value: "rented", icon: "/assets/icons/mcform/rented.svg", text: "Vermietet" },
+    { value: "vacant", icon: "/assets/icons/mcform/vacant.svg", text: "Leerstehend" },
 ]
 
-const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const RentedStatusForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
         setMCFormData({
             ...MCFormData,
-            category: value
+            rentedStatus: value
         });
         continueToNext();
     }
@@ -22,8 +22,10 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     return (
         <div className="">
             <FormHeader
-                title="Wofür benötigen Sie den Immobilienwert?"
-                isNote={true}
+                title="Ist die Wohnung vermietet?"
+                name="Uwe Klostermann"
+                avatar="/assets/avatars/avatar_1.jpg"
+                location="Standortleitung Celle"
             />
             <div className="md:py-20 py-8">
                 <CardButtonGroup
@@ -33,7 +35,6 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                 />
             </div>
             <FormFooter
-                enablePreviousButton={false}
                 clickPrevious={backToPrevious}
                 clickNext={continueToNext}
             />
@@ -41,4 +42,4 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     );
 }
 
-export default CategoryForm;
+export default RentedStatusForm;

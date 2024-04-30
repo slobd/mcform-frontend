@@ -1,3 +1,8 @@
+export type OptionType = {
+    value: string;
+    label: string;
+}
+
 export type CardButtonType = {
     value: string,
     icon: string,
@@ -11,7 +16,38 @@ export type MCFormPropsType = {
     continueToNext: () => void,
 }
 
-export type MCFormDataType = {
+export type UserInfoType = {
+    gender: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phone: string,
+    postalCode: string,
+    city: string,
+    street: string,
+    houseNumber: string,
+}
+
+export type AppointmentType = {
     type: string,
-    zipCode: string,
+    date: string,
+    time: string,
+}
+
+export type MCFormDataType = {
+    category: string,
+    location: string,
+    property: string,
+    detailedType: string,
+    livingSpaceSize: string,
+    locatedAreaSize: string,
+    roomCount: string,
+    builtYear: string,
+    rentedStatus: string,
+    qualityStandard: string,
+    timeline: string,
+    userInfo: UserInfoType,
+    appointment: AppointmentType,
+    reasonForSale: string,
+    netRent: string,
 }
