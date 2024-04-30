@@ -15,7 +15,7 @@ const CardButton = ({ icon, text, onClick }: CardButtonProps) => {
                 className="group w-full h-full flex justify-center items-center cursor-pointer rounded-sm border border-gray-200 p-5 transition-colors bg-gray-100 hover:border-gray-500"
                 onClick={() => onClick()}
             >
-                <div className="flex flex-col justify-between items-center min-h-20 h-full">
+                <div className="flex flex-col justify-center gap-3 items-center min-h-20 h-full">
                     {icon &&
                         <Image
                             src={icon}

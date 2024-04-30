@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface ButtonProps {
     children: ReactNode;
     onClick: () => void;
-    color?: "primary" | "transparent";
+    color?: "primary" | "yellow" | "transparent";
     disabled?: boolean;
     className?: string;
     size?: "xs" | "sm" | "md" | "lg" | "xl";
@@ -19,8 +19,9 @@ const Button: NextPage<ButtonProps> = ({
     size = "sm",
 }) => {
     const colors: Record<string, string> = {
-        primary: "bg-primary",
-        transparent: "bg-transparent",
+        primary: "",
+        yellow: "bg-yellow",
+        transparent: "!bg-transparent !text-black hover:!opacity-70",
     };
 
     const sizes: Record<string, string> = {
@@ -33,9 +34,11 @@ const Button: NextPage<ButtonProps> = ({
 
     return (
         <button
-            className={`w-auto flex items-center justify-center py-1 md:px-12 px-4 font-normal text-black rounded-sm hover:opacity-80 
-                ${sizes[size]} ${className} 
-                ${!disabled ? colors[color] : `bg-gray-100 cursor-not-allowed`}`
+            className={`w-auto flex items-center justify-center py-2 md:px-12 px-4 font-normal text-black rounded-sm hover:bg-primary hover:text-white  
+                ${sizes[size]} 
+                ${!disabled ? colors[color] : "bg-gray-100 cursor-not-allowed"} 
+                ${color == "primary" ? "border border-primary" : ""}
+                ${className}`
             }
             onClick={onClick}
             disabled={disabled}

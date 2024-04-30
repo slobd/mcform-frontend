@@ -4,17 +4,20 @@ import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
 
 const cardButtonData: CardButtonType[] = [
-    { value: "sell", icon: "/assets/icons/mcform/sale.svg", text: "Verkauf" },
-    { value: "buy", icon: "/assets/icons/mcform/purchase.svg", text: "Kauf" },
-    { value: "miscellaneous", icon: "/assets/icons/mcform/miscellaneous.svg", text: "Sonstiges" },
+    { value: "<300", icon: "", text: "<300m²" },
+    { value: "301-600", icon: "", text: "301m² - 600m²" },
+    { value: "601-1000", icon: "", text: "601m² - 1000m²" },
+    { value: "1001-1500", icon: "", text: "1001m² - 1500m²" },
+    { value: "1501-2000", icon: "", text: "1501m² - 2000m²" },
+    { value: ">2000", icon: "", text: ">2000m²" },
 ]
 
-const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const LocatedAreaSizeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
         setMCFormData({
             ...MCFormData,
-            category: value
+            locatedAreaSize: value
         });
         continueToNext();
     }
@@ -22,8 +25,10 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     return (
         <div className="">
             <FormHeader
-                title="Wofür benötigen Sie den Immobilienwert?"
-                isNote={true}
+                title="Welche Fläche hat das Grundstück des Hauses?"
+                name="Uwe Klostermann"
+                avatar="/assets/avatars/avatar_1.jpg"
+                location="Standortleitung Celle"
             />
             <div className="md:py-20 py-8">
                 <CardButtonGroup
@@ -33,7 +38,6 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                 />
             </div>
             <FormFooter
-                enablePreviousButton={false}
                 clickPrevious={backToPrevious}
                 clickNext={continueToNext}
             />
@@ -41,4 +45,4 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     );
 }
 
-export default CategoryForm;
+export default LocatedAreaSizeForm;

@@ -3,13 +3,12 @@ import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import InputWithOverlappingLabel from "@/components/common/InputWithOverlappingLabel";
 
-const ZipCodeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const LocationForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleInputMCFormData = (e: any) => {
-        console.log("set zip code", e.target)
         setMCFormData({
             ...MCFormData,
-            zipCode: e.target.value
+            location: e.target.value
         });
     }
 
@@ -28,14 +27,14 @@ const ZipCodeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext
                 <InputWithOverlappingLabel
                     wrapperClassName={"mt-4 mb-2"}
                     label={"Postleitzahl"}
-                    name={"zipCode"}
+                    name={"location"}
                     placeholder={""}
-                    value={MCFormData?.zipCode}
+                    value={MCFormData?.location}
                     onChange={(e: any) => handleInputMCFormData(e)}
                 />
             </div>
             <FormFooter
-                enableNextButton={MCFormData?.zipCode ? true : false}
+                enableNextButton={MCFormData?.location ? true : false}
                 clickPrevious={backToPrevious}
                 clickNext={continueToNext}
             />
@@ -43,4 +42,4 @@ const ZipCodeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext
     );
 }
 
-export default ZipCodeForm;
+export default LocationForm;

@@ -4,17 +4,20 @@ import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
 
 const cardButtonData: CardButtonType[] = [
-    { value: "sell", icon: "/assets/icons/mcform/sale.svg", text: "Verkauf" },
-    { value: "buy", icon: "/assets/icons/mcform/purchase.svg", text: "Kauf" },
-    { value: "miscellaneous", icon: "/assets/icons/mcform/miscellaneous.svg", text: "Sonstiges" },
+    { value: "<40", icon: "", text: "<80m²" },
+    { value: "40-60", icon: "", text: "40m² - 60m²" },
+    { value: "61-80", icon: "", text: "61m² - 80m²" },
+    { value: "81-100", icon: "", text: "81m² - 100m²" },
+    { value: "101-120", icon: "", text: "101m² - 120m²" },
+    { value: ">120", icon: "", text: ">120m²" },
 ]
 
-const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const LivingSpaceSizeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
         setMCFormData({
             ...MCFormData,
-            category: value
+            livingSpaceSize: value
         });
         continueToNext();
     }
@@ -22,8 +25,10 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     return (
         <div className="">
             <FormHeader
-                title="Wofür benötigen Sie den Immobilienwert?"
-                isNote={true}
+                title="Wie groß ist die Wohnfläche der Wohnung?"
+                name="Uwe Klostermann"
+                avatar="/assets/avatars/avatar_1.jpg"
+                location="Standortleitung Celle"
             />
             <div className="md:py-20 py-8">
                 <CardButtonGroup
@@ -33,7 +38,6 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                 />
             </div>
             <FormFooter
-                enablePreviousButton={false}
                 clickPrevious={backToPrevious}
                 clickNext={continueToNext}
             />
@@ -41,4 +45,4 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     );
 }
 
-export default CategoryForm;
+export default LivingSpaceSizeForm;

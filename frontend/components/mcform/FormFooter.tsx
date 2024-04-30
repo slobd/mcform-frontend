@@ -11,27 +11,29 @@ export type FormFooterProps = {
     clickNext: () => void;
 };
 
-const FormFooter = ({ enablePreviousButton = true, enableNextButton = false, clickPrevious, clickNext}: FormFooterProps) => {
+const FormFooter = ({ enablePreviousButton = true, enableNextButton = false, clickPrevious, clickNext }: FormFooterProps) => {
 
 
     return (
         <div className={`flex flex-row items-center ${enablePreviousButton ? "justify-between" : "justify-end"}`}>
-            <Button
-                color="transparent"
-                size="md"
-                className={`w-9 h-9 ${enablePreviousButton ? "" : "hidden"}`}
-                onClick={() => clickPrevious()}
-            >
-                <ChevronLeftIcon className="w-5 h-5" />
-                Zurück
-            </Button>
-            <Button
-                color="primary"
-                className={`w-9 h-9 ${enableNextButton ? "" : "hidden"}`}
-                onClick={() => clickNext()}
-            >
-                Weiter
-            </Button>
+            {enablePreviousButton &&
+                <Button
+                    color="transparent"
+                    size="md"
+                    onClick={() => clickPrevious()}
+                >
+                    <ChevronLeftIcon className="w-5 h-5" />
+                    Zurück
+                </Button>
+            }
+            {enableNextButton &&
+                <Button
+                    color="yellow"
+                    onClick={() => clickNext()}
+                >
+                    Weiter
+                </Button>
+            }
         </div>
     );
 }

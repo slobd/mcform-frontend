@@ -4,17 +4,18 @@ import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
 
 const cardButtonData: CardButtonType[] = [
-    { value: "sell", icon: "/assets/icons/mcform/sale.svg", text: "Verkauf" },
-    { value: "buy", icon: "/assets/icons/mcform/purchase.svg", text: "Kauf" },
-    { value: "miscellaneous", icon: "/assets/icons/mcform/miscellaneous.svg", text: "Sonstiges" },
+    { value: "house", icon: "/assets/icons/mcform/house.svg", text: "Haus" },
+    { value: "apartment", icon: "/assets/icons/mcform/purchase.svg", text: "Wohnung" },
+    { value: "business", icon: "/assets/icons/mcform/business.svg", text: "Gewerbe" },
+    { value: "property", icon: "/assets/icons/mcform/property.svg", text: "Grundstück" },
 ]
 
-const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const PropertyForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
         setMCFormData({
             ...MCFormData,
-            category: value
+            property: value
         });
         continueToNext();
     }
@@ -22,18 +23,19 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     return (
         <div className="">
             <FormHeader
-                title="Wofür benötigen Sie den Immobilienwert?"
-                isNote={true}
+                title="Welche Immobilie möchten Sie kostenlos bewerten?"
+                name="Uwe Klostermann"
+                avatar="/assets/avatars/avatar_1.jpg"
+                location="Standortleitung Celle"
             />
             <div className="md:py-20 py-8">
                 <CardButtonGroup
-                    mdCols="3"
+                    mdCols="4"
                     items={cardButtonData}
                     handleSelect={handleSelect}
                 />
             </div>
             <FormFooter
-                enablePreviousButton={false}
                 clickPrevious={backToPrevious}
                 clickNext={continueToNext}
             />
@@ -41,4 +43,4 @@ const CategoryForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
     );
 }
 
-export default CategoryForm;
+export default PropertyForm;

@@ -13,7 +13,7 @@ const HomeCardButton = ({ icon, text, onClick }: HomeCardButtonProps) => {
     return (
         <div className="md:px-10 px-2 py-2 md:w-auto w-full">
             <div
-                className="group flex md:flex-col flex-row justify-between items-center cursor-pointer rounded-lg border-0 p-5 transition-colors bg-gray-100 hover:bg-primary"
+                className="group flex md:flex-col flex-row justify-between items-center cursor-pointer rounded-lg border-0 p-5 transition-colors bg-gray-100 hover:bg-yellow"
                 onClick={() => onClick()}
             >
                 <div className="flex items-center md:flex-col flex-row">
