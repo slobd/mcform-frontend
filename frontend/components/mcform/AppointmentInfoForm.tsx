@@ -47,7 +47,7 @@ const AppointmentInfoForm = ({ mcFormData, setMcFormData, backToPrevious, contin
                     disabled={true}
                 />
                 <div className='flex md:flex-row flex-col items-center'>
-                    <div className='md:w-1/2 w-full pr-1'>
+                    <div className='md:w-1/2 w-full md:pr-1 pr-0'>
                         <InputWithOverlappingLabel
                             wrapperClassName={"mt-4 mb-2"}
                             label={"Postleitzahl"}
@@ -58,7 +58,7 @@ const AppointmentInfoForm = ({ mcFormData, setMcFormData, backToPrevious, contin
                             disabled={true}
                         />
                     </div>
-                    <div className='md:w-1/2 w-full pl-1'>
+                    <div className='md:w-1/2 w-full md:pl-1 pl-0'>
                         <InputWithOverlappingLabel
                             wrapperClassName={"mt-4 mb-2"}
                             label={"Stadt"}
@@ -70,7 +70,7 @@ const AppointmentInfoForm = ({ mcFormData, setMcFormData, backToPrevious, contin
                     </div>
                 </div>
                 <div className='flex md:flex-row flex-col items-center'>
-                    <div className='md:w-1/2 w-full pr-1'>
+                    <div className='md:w-1/2 w-full md:pr-1 pr-0'>
                         <InputWithOverlappingLabel
                             wrapperClassName={"mt-4 mb-2"}
                             label={"Straße"}
@@ -80,7 +80,7 @@ const AppointmentInfoForm = ({ mcFormData, setMcFormData, backToPrevious, contin
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
-                    <div className='md:w-1/2 w-full pl-1'>
+                    <div className='md:w-1/2 w-full md:pl-1 pl-0'>
                         <InputWithOverlappingLabel
                             wrapperClassName={"mt-4 mb-2"}
                             label={"Hausnr."}
