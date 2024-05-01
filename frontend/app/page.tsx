@@ -60,19 +60,24 @@ export default function Home() {
   }
 
   const handleFinish = () => {
+    console.log("handleFinish", mcFormData);
+
+    APIService.user.create({
+      ...mcFormData.user
+    }).then((res: any) => {
+      console.log("user created", res);
+      APIService.mcFormData.create({
+        ...mcFormData,
+        user: res.data._id,
+      }).then((res: any) => {
+        console.log("mcFormData created", res);
+      })
+    })
+
+
     setMcFormData(defaultMcFormData);
     setCurrentStep(2);
     setShowMCForm(false);
-    // APIService.user.create({
-    //   ...MCFormData.user
-    // }).then((res: any) => {
-    //   console.log("user created", res);
-    // })
-    // APIService.mcFormData.create({
-    //   ...MCFormData.user
-    // }).then((res: any) => {
-    //   console.log("user created", res);
-    // })
   }
 
   return (

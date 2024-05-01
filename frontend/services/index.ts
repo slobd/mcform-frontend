@@ -35,21 +35,11 @@ const APIService = {
             API.post(
                 "/user",
                 { ...data },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
             ),
         update: (data: any) =>
             API.put(
                 "/user",
                 { ...data },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
             ),
         delete: (data: any) => API.delete("/user", { params: { _id: data } }),
     },
@@ -61,21 +51,11 @@ const APIService = {
             API.post(
                 "/mcFormData",
                 { ...data },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
             ),
         update: (data: any) =>
             API.put(
                 "/mcFormData",
                 { ...data },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
             ),
         delete: (data: any) => API.delete("/mcFormData", { params: { _id: data } }),
     },
