@@ -81,14 +81,16 @@ export default function Home() {
 
   const handleConfirm = (value: boolean) => {
     if (value) {
-      setShowMCForm(false);
       setMCFormData(defaultMCFormData);
       setCurrentStep(2);
+      setShowMCForm(false);
     }
     setCancelConfirmModal(false);
   }
   
-  const finished = () => {
+  const handleFinish = () => {
+    setMCFormData(defaultMCFormData);
+    setCurrentStep(2);
     setShowMCForm(false);
   }
 
@@ -247,7 +249,7 @@ export default function Home() {
                   setMCFormData={setMCFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   // continueToNext={() => setCurrentStep(prev => prev + 1)}
-                  continueToNext={() => finished()}
+                  continueToNext={() => handleFinish()}
                 />
               }
               {/* {currentStep == 12 &&
