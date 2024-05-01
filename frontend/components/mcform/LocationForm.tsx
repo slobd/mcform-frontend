@@ -3,11 +3,11 @@ import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import InputWithOverlappingLabel from "@/components/common/InputWithOverlappingLabel";
 
-const LocationForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const LocationForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleInputMCFormData = (e: any) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             location: e.target.value
         });
     }
@@ -29,12 +29,12 @@ const LocationForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                     label={"Postleitzahl"}
                     name={"location"}
                     placeholder={""}
-                    value={MCFormData?.location}
+                    value={mcFormData?.location}
                     onChange={(e: any) => handleInputMCFormData(e)}
                 />
             </div>
             <FormFooter
-                enableNextButton={MCFormData?.location ? true : false}
+                enableNextButton={mcFormData?.location ? true : false}
                 clickPrevious={backToPrevious}
                 clickNext={continueToNext}
             />

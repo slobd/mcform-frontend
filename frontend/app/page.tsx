@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import HomeCardButton from "@/components/home/HomeCardButton";
-import { CardButtonType, MCFormDataType } from "@/utils/types";
+import { CardButtonType, McFormDataType } from "@/utils/types";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import ConfirmModal from "@/components/modal/confirmModal";
 import CategoryForm from "@/components/mcform/CategoryForm";
@@ -22,7 +22,7 @@ import AppointmentForm from "@/components/mcform/AppointmentForm";
 import AppointmentInfoForm from "@/components/mcform/AppointmentInfoForm";
 import AppointmentAddtionalInfoForm from "@/components/mcform/AppointmentAddtionalInfoForm";
 import AppointmentDateTimeForm from "@/components/mcform/AppointmentDateTimeForm";
-import { defaultMCFormData } from '../utils/constants';
+import { defaultMcFormData } from '../utils/constants';
 import { APIService } from "@/services";
 
 const cardButtonData: CardButtonType[] = [
@@ -33,14 +33,14 @@ const cardButtonData: CardButtonType[] = [
 
 export default function Home() {
   const [cancelConfirmModal, setCancelConfirmModal] = useState(false);
-  const [MCFormData, setMCFormData] = useState<MCFormDataType>(defaultMCFormData);
+  const [mcFormData, setMcFormData] = useState<McFormDataType>(defaultMcFormData);
   const [showMCForm, setShowMCForm] = useState(false);
   const [totalStep, setTotalStep] = useState(12);
   const [currentStep, setCurrentStep] = useState(2);
 
   const handleSelect = (value: string) => {
-    setMCFormData({
-      ...MCFormData,
+    setMcFormData({
+      ...mcFormData,
       category: value
     })
     setShowMCForm(true);
@@ -52,7 +52,7 @@ export default function Home() {
 
   const handleConfirm = (value: boolean) => {
     if (value) {
-      setMCFormData(defaultMCFormData);
+      setMcFormData(defaultMcFormData);
       setCurrentStep(2);
       setShowMCForm(false);
     }
@@ -60,7 +60,7 @@ export default function Home() {
   }
 
   const handleFinish = () => {
-    setMCFormData(defaultMCFormData);
+    setMcFormData(defaultMcFormData);
     setCurrentStep(2);
     setShowMCForm(false);
     // APIService.user.create({
@@ -138,96 +138,96 @@ export default function Home() {
             <div className={`max-w-4xl w-full md:px-20 px-4 md:pt-32 pt-8 pb-8`}>
               {currentStep == 1 &&
                 <CategoryForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 2 &&
                 <LocationForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 3 &&
                 <PropertyForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 4 &&
                 <DetailedTypeForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 5 &&
                 <LivingSpaceSizeForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {/* {currentStep == 6 &&
                 <LocatedAreaSizeForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               } */}
               {currentStep == 6 &&
                 <RoomCountForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 7 &&
                 <BuildYearForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 8 &&
                 <RentedStatusForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 9 &&
                 <QualityStandardForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 10 &&
                 <TimelineForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 11 &&
                 <UserInfoForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   // continueToNext={() => setCurrentStep(prev => prev + 1)}
                   continueToNext={() => handleFinish()}
@@ -235,32 +235,32 @@ export default function Home() {
               }
               {/* {currentStep == 12 &&
                 <AppointmentForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 13 &&
                 <AppointmentInfoForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 14 &&
                 <AppointmentAddtionalInfoForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />
               }
               {currentStep == 15 &&
                 <AppointmentDateTimeForm
-                  MCFormData={MCFormData}
-                  setMCFormData={setMCFormData}
+                  mcFormData={mcFormData}
+                  setMcFormData={setMcFormData}
                   backToPrevious={() => setCurrentStep(prev => prev - 1)}
                   continueToNext={() => setCurrentStep(prev => prev + 1)}
                 />

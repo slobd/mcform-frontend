@@ -10,11 +10,11 @@ const cardButtonData: CardButtonType[] = [
     { value: "property", icon: "/assets/icons/mcform/property.svg", text: "Grundstück" },
 ]
 
-const PropertyForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const PropertyForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             property: value
         });
         continueToNext();

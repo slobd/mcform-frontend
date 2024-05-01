@@ -6,11 +6,11 @@ import InputWithOverlappingLabel from '../common/InputWithOverlappingLabel';
 import { MCFormPropsType } from "@/utils/types";
 import Button from '../common/Button';
 
-const AppointmentAddtionalInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const AppointmentAddtionalInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleInput = (e: any) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             [e.target.name]: e.target.value
         });
     }
@@ -36,7 +36,7 @@ const AppointmentAddtionalInfoForm = ({ MCFormData, setMCFormData, backToPreviou
                     label={"Verkaufsgrund"}
                     name={"reasonForSale"}
                     placeholder={""}
-                    value={MCFormData?.reasonForSale}
+                    value={mcFormData?.reasonForSale}
                     onChange={(e: any) => handleInput(e)}
                 />
                 <InputWithOverlappingLabel
@@ -44,7 +44,7 @@ const AppointmentAddtionalInfoForm = ({ MCFormData, setMCFormData, backToPreviou
                     label={"Nettokaltmiete/monat"}
                     name={"netRent"}
                     placeholder={""}
-                    value={MCFormData?.netRent}
+                    value={mcFormData?.netRent}
                     onChange={(e: any) => handleInput(e)}
                     suffix={"€"}
                 />

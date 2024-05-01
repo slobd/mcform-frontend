@@ -12,26 +12,26 @@ const genders = [
     { label: 'Frau', value: "female" },
 ]
 
-const UserInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const [showAlert, setShowAlert] = useState(true);
     const [gender, setGender] = useState("");
 
     const handleUserInfoInput = (e: any) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             user: {
-                ...MCFormData.user,
+                ...mcFormData.user,
                 [e.target.name]: e.target.value
             }
         });
     }
 
     const receiveReview = () => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             user: {
-                ...MCFormData.user,
+                ...mcFormData.user,
                 gender: gender
             }
         });
@@ -78,7 +78,7 @@ const UserInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                             label={"Vorname"}
                             name={"firstName"}
                             placeholder={""}
-                            value={MCFormData?.user?.firstName}
+                            value={mcFormData?.user?.firstName}
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
@@ -88,7 +88,7 @@ const UserInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                             label={"Nachname"}
                             name={"lastName"}
                             placeholder={""}
-                            value={MCFormData?.user?.lastName}
+                            value={mcFormData?.user?.lastName}
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
@@ -98,7 +98,7 @@ const UserInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                     label={"E-Mail-Adresse"}
                     name={"email"}
                     placeholder={""}
-                    value={MCFormData?.user?.email}
+                    value={mcFormData?.user?.email}
                     onChange={(e: any) => handleUserInfoInput(e)}
                 />
                 <InputWithOverlappingLabel
@@ -106,7 +106,7 @@ const UserInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNex
                     label={"Telefonnummer"}
                     name={"phone"}
                     placeholder={""}
-                    value={MCFormData?.user?.phone}
+                    value={mcFormData?.user?.phone}
                     onChange={(e: any) => handleUserInfoInput(e)}
                 />
 

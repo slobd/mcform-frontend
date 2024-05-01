@@ -13,11 +13,11 @@ const cardButtonData: CardButtonType[] = [
     { value: "15+", icon: "", text: "Mehr als 15" },
 ]
 
-const RoomCountForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const RoomCountForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             roomCount: value
         });
         continueToNext();

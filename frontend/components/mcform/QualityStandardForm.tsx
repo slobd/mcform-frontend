@@ -10,11 +10,11 @@ const cardButtonData: CardButtonType[] = [
     { value: "luxury", icon: "/assets/icons/mcform/luxury.svg", text: "Luxus" },
 ]
 
-const QualityStandardForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const QualityStandardForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             qualityStandard: value
         });
         continueToNext();

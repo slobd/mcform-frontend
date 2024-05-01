@@ -13,11 +13,11 @@ const cardButtonData: CardButtonType[] = [
     { value: ">2015", icon: "", text: "ab 2015" },
 ]
 
-const BuildYearForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const BuildYearForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             builtYear: value
         });
         continueToNext();
