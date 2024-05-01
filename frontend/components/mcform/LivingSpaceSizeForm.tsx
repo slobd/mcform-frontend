@@ -12,11 +12,11 @@ const cardButtonData: CardButtonType[] = [
     { value: ">120", icon: "", text: ">120m²" },
 ]
 
-const LivingSpaceSizeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const LivingSpaceSizeForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             livingSpaceSize: value
         });
         continueToNext();

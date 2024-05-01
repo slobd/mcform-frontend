@@ -1,6 +1,6 @@
-import { MCFormDataType } from "./types";
+import { McFormDataType } from "./types";
 
-export const defaultMCFormData: MCFormDataType = {
+export const defaultMcFormData: McFormDataType = {
     category: "",
     location: "",
     property: "",

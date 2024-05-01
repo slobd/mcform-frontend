@@ -12,11 +12,11 @@ const cardButtonData: CardButtonType[] = [
     { value: "dontSell", icon: "/assets/icons/mcform/dontSell.svg", text: "Ich will nicht verkaufen" },
 ]
 
-const TimelineForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const TimelineForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             timeline: value
         });
         continueToNext();

@@ -10,8 +10,8 @@ export type CardButtonType = {
 }
 
 export type MCFormPropsType = {
-    MCFormData: MCFormDataType,
-    setMCFormData: (e: any) => void,
+    mcFormData: McFormDataType,
+    setMcFormData: (e: any) => void,
     backToPrevious: () => void,
     continueToNext: () => void,
 }
@@ -34,7 +34,7 @@ export type AppointmentType = {
     time: string,
 }
 
-export type MCFormDataType = {
+export type McFormDataType = {
     category: string,
     location: string,
     property: string,

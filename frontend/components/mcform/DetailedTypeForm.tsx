@@ -15,11 +15,11 @@ const cardButtonData: CardButtonType[] = [
     { value: "other", icon: "/assets/icons/mcform/otherApartment.svg", text: "Andere" },
 ]
 
-const DetailedTypeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const DetailedTypeForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleSelect = (value: string) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             detailedType: value
         });
         continueToNext();

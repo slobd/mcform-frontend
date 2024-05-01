@@ -6,11 +6,11 @@ import InputWithOverlappingLabel from '../common/InputWithOverlappingLabel';
 import { MCFormPropsType } from "@/utils/types";
 import Button from '../common/Button';
 
-const AppointmentDateTimeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const AppointmentDateTimeForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const handleInput = (e: any) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             [e.target.name]: e.target.value
         });
     }
@@ -36,7 +36,7 @@ const AppointmentDateTimeForm = ({ MCFormData, setMCFormData, backToPrevious, co
                     label={"Telefonnummer"}
                     name={"phone"}
                     placeholder={""}
-                    value={MCFormData?.user?.phone}
+                    value={mcFormData?.user?.phone}
                     onChange={() =>{} }
                     disabled={true}
                 />
@@ -55,7 +55,7 @@ const AppointmentDateTimeForm = ({ MCFormData, setMCFormData, backToPrevious, co
                         color="yellow"
                         className={`md:px-10 py-3`}
                         onClick={makeAppointment}
-                        disabled={!MCFormData?.appointment?.date || !MCFormData?.appointment?.time}
+                        disabled={!mcFormData?.appointment?.date || !mcFormData?.appointment?.time}
                     >
                         Termin auswählen
                     </Button>

@@ -7,15 +7,15 @@ import { MCFormPropsType } from "@/utils/types";
 import Button from '../common/Button';
 import Checkbox from "../common/Checkbox";
 
-const AppointmentInfoForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const AppointmentInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const [confirm, setConfirm] = useState(false);
 
     const handleUserInfoInput = (e: any) => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             user: {
-                ...MCFormData.user,
+                ...mcFormData.user,
                 [e.target.name]: e.target.value
             }
         });
@@ -42,7 +42,7 @@ const AppointmentInfoForm = ({ MCFormData, setMCFormData, backToPrevious, contin
                     label={"Telefonnummer"}
                     name={"phone"}
                     placeholder={""}
-                    value={MCFormData?.user?.phone}
+                    value={mcFormData?.user?.phone}
                     onChange={(e: any) => handleUserInfoInput(e)}
                     disabled={true}
                 />
@@ -64,7 +64,7 @@ const AppointmentInfoForm = ({ MCFormData, setMCFormData, backToPrevious, contin
                             label={"Stadt"}
                             name={"city"}
                             placeholder={""}
-                            value={MCFormData?.user?.city}
+                            value={mcFormData?.user?.city}
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
@@ -76,7 +76,7 @@ const AppointmentInfoForm = ({ MCFormData, setMCFormData, backToPrevious, contin
                             label={"Straße"}
                             name={"street"}
                             placeholder={""}
-                            value={MCFormData?.user?.street}
+                            value={mcFormData?.user?.street}
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
@@ -86,7 +86,7 @@ const AppointmentInfoForm = ({ MCFormData, setMCFormData, backToPrevious, contin
                             label={"Hausnr."}
                             name={"houseNumber"}
                             placeholder={""}
-                            value={MCFormData?.user?.houseNumber}
+                            value={mcFormData?.user?.houseNumber}
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
@@ -105,7 +105,7 @@ const AppointmentInfoForm = ({ MCFormData, setMCFormData, backToPrevious, contin
                         color="yellow"
                         className={`md:px-10 py-3`}
                         onClick={makeAppointment}
-                        disabled={!confirm || !MCFormData?.user?.city || !MCFormData?.user?.street || !MCFormData?.user?.houseNumber}
+                        disabled={!confirm || !mcFormData?.user?.city || !mcFormData?.user?.street || !mcFormData?.user?.houseNumber}
                     >
                         Termin vereinbaren
                     </Button>

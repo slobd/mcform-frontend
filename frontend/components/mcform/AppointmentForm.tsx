@@ -2,13 +2,13 @@ import { MCFormPropsType } from "@/utils/types";
 import FormHeader from "./FormHeader";
 import Button from "../common/Button";
 
-const AppointmentForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
+const AppointmentForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const telephoneAppointment = () => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             appointment: {
-                ...MCFormData?.appointment,
+                ...mcFormData?.appointment,
                 type: "phone",
             }
         });
@@ -16,10 +16,10 @@ const AppointmentForm = ({ MCFormData, setMCFormData, backToPrevious, continueTo
     }
 
     const onsiteAppointment = () => {
-        setMCFormData({
-            ...MCFormData,
+        setMcFormData({
+            ...mcFormData,
             appointment: {
-                ...MCFormData?.appointment,
+                ...mcFormData?.appointment,
                 type: "onsite",
             }
         });
