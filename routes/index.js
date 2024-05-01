@@ -1,13 +1,9 @@
 const express = require("express");
 
-const filterDesignController = require("../controllers/filterDesign");
-const campaignController = require("../controllers/campaign");
-const galleryController = require("../controllers/gallery");
-const placeholderController = require("../controllers/filterDesignPlaceholder");
 const fileController = require("../controllers/file");
-const tagController = require("../controllers/tag");
-const contactController = require("../controllers/contact");
-const uniqueLinkController = require("../controllers/uniqueLink");
+const userController = require("../controllers/user");
+const mcFormDataController = require("../controllers/mcFormData");
+
 const path = require('path');
 const router = express.Router();
 
@@ -24,79 +20,31 @@ const uploadFile = multer({
     storage: multerStorage,
 });
 
-const {validateAccessToken} = require("../middleware/auth0.middleware.js");
+router.post("/upload", uploadFile.single("file"), fileController.upload);
 
-router.get("/filters", filterDesignController.getFilters);
-router.get("/filter", filterDesignController.getFilter);
-router.delete("/filter", filterDesignController.deleteFilter);
+router.get("/getAllUser", userController.getAllUser);
+router.get("/user", userController.getUser);
 router.post(
-    "/filter",
+    "/user",
     (req, res, next) => {
         uploadFile.fields([])(req, res, next);
     },
-    filterDesignController.createFilter
-);
-
-
-router.get("/campaign", campaignController.getCampaign);
-router.delete("/campaign", campaignController.deleteCampaign);
-router.get("/campaigns", campaignController.getCampaigns);
-router.get("/campaign/confirm-password", campaignController.confirmPassword);
-router.get("/campaign/report", campaignController.getReporting);
-router.post("/campaign/invite-by-email", campaignController.inviteByEmail);
-router.post(
-    "/campaign",
-    (req, res, next) => {
-        uploadFile.fields([])(req, res, next);
-    },
-    campaignController.createCampaign
+    userController.createUser
 );
 router.put(
-    "/campaign",
+    "/user",
     (req, res, next) => {
         uploadFile.fields([])(req, res, next);
     },
-    campaignController.editCampaign
+    userController.updateUser
 );
+router.delete("/user", userController.deleteUser);
 
-router.get("/galleries", galleryController.getGalleries);
-router.post(
-    "/gallery",
-    (req, res, next) => {
-        uploadFile.fields([])(req, res, next);
-    },
-    galleryController.createGallery
-);
-router.delete("/gallery", galleryController.deleteGallery);
-router.post("/gallery/send", galleryController.sendGalleryByEmail);
 
-router.get("/placeholders", placeholderController.getPlaceholders);
-router.delete("/placeholder", placeholderController.deletePlaceholder);
-router.post(
-    "/placeholder",
-    (req, res, next) => {
-        uploadFile.fields([])(req, res, next);
-    },
-    placeholderController.createPlaceholder
-);
-
-router.get("/tags", tagController.getTags);
-router.delete("/tag", tagController.deleteTag);
-router.post("/tag", tagController.createTag);
-
-router.get("/contact", contactController.getContact);
-router.get("/contacts", contactController.getContacts);
-router.delete("/contact", contactController.deleteContact);
-router.post(
-    "/contact",
-    uploadFile.fields([{name: "logo"}, {name: "company_logo"}]),
-    contactController.createContact
-);
-router.post("/contact/import", contactController.bulkImportContact);
-
-router.post("/unique-links", uniqueLinkController.createUniqueLinks);
-router.get("/unique-links", uniqueLinkController.getUniqueLinks);
-
-router.post("/upload", uploadFile.single("file"), fileController.upload);
+router.get("/getAllMcFormData", mcFormDataController.getAllMcFormData);
+router.get("/mcFormData", mcFormDataController.getMcFormData);
+router.post("/mcFormData", mcFormDataController.createMcFormData);
+router.put("/mcFormData", mcFormDataController.updateMcFormData);
+router.delete("/mcFormData", mcFormDataController.deleteMcFormData);
 
 module.exports = router;

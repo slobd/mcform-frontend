@@ -16,7 +16,7 @@ export type MCFormPropsType = {
     continueToNext: () => void,
 }
 
-export type UserInfoType = {
+export type UserType = {
     gender: string,
     firstName: string,
     lastName: string,
@@ -46,7 +46,7 @@ export type MCFormDataType = {
     rentedStatus: string,
     qualityStandard: string,
     timeline: string,
-    userInfo: UserInfoType,
+    user: UserType,
     appointment: AppointmentType,
     reasonForSale: string,
     netRent: string,
