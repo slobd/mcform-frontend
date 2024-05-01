@@ -8,17 +8,6 @@ import Button from '../common/Button';
 
 const AppointmentDateTimeForm = ({ MCFormData, setMCFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
-    // const days = () => {
-    //     const d = new Date();
-    //     let days = [];
-    //     for(i = 4; i <= 8; i++) {
-
-    //     }
-    //     d.setDate(d.getDate() + 5);
-    //     console.log("date1", d)
-    //     return 
-    // }
-
     const handleInput = (e: any) => {
         setMCFormData({
             ...MCFormData,
