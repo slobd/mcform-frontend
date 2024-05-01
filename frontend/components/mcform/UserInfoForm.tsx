@@ -70,7 +70,7 @@ const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNex
                     />
                 </div>
                 <div className='flex md:flex-row flex-col items-center'>
-                    <div className='md:w-1/2 w-full pr-1'>
+                    <div className='md:w-1/2 w-full md:pr-1 pr-0'>
                         <InputWithOverlappingLabel
                             wrapperClassName={"mt-4 mb-2"}
                             label={"Vorname"}
@@ -80,7 +80,7 @@ const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNex
                             onChange={(e: any) => handleUserInfoInput(e)}
                         />
                     </div>
-                    <div className='md:w-1/2 w-full pl-1'>
+                    <div className='md:w-1/2 w-full md:pl-1 pl-0'>
                         <InputWithOverlappingLabel
                             wrapperClassName={"mt-4 mb-2"}
                             label={"Nachname"}

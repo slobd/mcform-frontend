@@ -13,7 +13,6 @@ const getMcFormData = async (req, res) => {
 };
 
 const createMcFormData = async (req, res) => {
-    console.log("req body user", req.body)
     const _data = new McFormData({
         category: req.body.category,
         location: req.body.location,

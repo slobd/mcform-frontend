@@ -60,12 +60,10 @@ export default function Home() {
   }
 
   const handleFinish = () => {
-    console.log("handleFinish", mcFormData);
 
     APIService.user.create({
       ...mcFormData.user
     }).then((res: any) => {
-      console.log("user created", res);
       APIService.mcFormData.create({
         ...mcFormData,
         user: res.data._id,
