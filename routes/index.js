@@ -43,8 +43,20 @@ router.delete("/user", userController.deleteUser);
 
 router.get("/getAllMcFormData", mcFormDataController.getAllMcFormData);
 router.get("/mcFormData", mcFormDataController.getMcFormData);
-router.post("/mcFormData", mcFormDataController.createMcFormData);
-router.put("/mcFormData", mcFormDataController.updateMcFormData);
+router.post(
+    "/mcFormData",
+    (req, res, next) => {
+        uploadFile.fields([])(req, res, next);
+    },
+    mcFormDataController.createMcFormData
+);
+router.put(
+    "/mcFormData",
+    (req, res, next) => {
+        uploadFile.fields([])(req, res, next);
+    }, 
+    mcFormDataController.updateMcFormData
+);
 router.delete("/mcFormData", mcFormDataController.deleteMcFormData);
 
 module.exports = router;

@@ -15,7 +15,6 @@ const genders = [
 const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNext }: MCFormPropsType) => {
 
     const [showAlert, setShowAlert] = useState(true);
-    const [gender, setGender] = useState("");
 
     const handleUserInfoInput = (e: any) => {
         setMcFormData({
@@ -28,13 +27,6 @@ const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNex
     }
 
     const receiveReview = () => {
-        setMcFormData({
-            ...mcFormData,
-            user: {
-                ...mcFormData.user,
-                gender: gender
-            }
-        });
         continueToNext();
     }
 
@@ -66,8 +58,14 @@ const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNex
                     <RadioGroup
                         className='py-4'
                         options={genders}
-                        selectedValue={gender}
-                        onChange={(name, value) => { setGender(value) }}
+                        selectedValue={mcFormData?.user?.gender}
+                        onChange={(name, value) => setMcFormData({
+                            ...mcFormData,
+                            user: {
+                                ...mcFormData.user,
+                                gender: value
+                            }
+                        })}
                         name={'gender'}
                     />
                 </div>
@@ -114,7 +112,7 @@ const UserInfoForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNex
                     <Button
                         color="yellow"
                         className={`md:px-40 py-3`}
-                        onClick={receiveReview}
+                        onClick={() => receiveReview()}
                     >
                         Bewertung erhalten
                     </Button>
