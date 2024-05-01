@@ -36,7 +36,7 @@ const AppointmentDateTimeForm = ({ MCFormData, setMCFormData, backToPrevious, co
                     label={"Telefonnummer"}
                     name={"phone"}
                     placeholder={""}
-                    value={MCFormData?.userInfo?.phone}
+                    value={MCFormData?.user?.phone}
                     onChange={() =>{} }
                     disabled={true}
                 />

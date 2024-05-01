@@ -22,6 +22,8 @@ import AppointmentForm from "@/components/mcform/AppointmentForm";
 import AppointmentInfoForm from "@/components/mcform/AppointmentInfoForm";
 import AppointmentAddtionalInfoForm from "@/components/mcform/AppointmentAddtionalInfoForm";
 import AppointmentDateTimeForm from "@/components/mcform/AppointmentDateTimeForm";
+import { defaultMCFormData } from '../utils/constants';
+import { APIService } from "@/services";
 
 const cardButtonData: CardButtonType[] = [
   { value: "sell", icon: "/assets/icons/home/sell.svg", text: "Ich möchte verkaufen" },
@@ -29,37 +31,6 @@ const cardButtonData: CardButtonType[] = [
   { value: "miscellaneous", icon: "/assets/icons/home/miscellaneous.svg", text: "Ich bin neugierig" },
 ]
 
-const defaultMCFormData: MCFormDataType = {
-  category: "",
-  location: "",
-  property: "",
-  detailedType: "",
-  livingSpaceSize: "",
-  locatedAreaSize: "",
-  roomCount: "",
-  builtYear: "",
-  rentedStatus: "",
-  qualityStandard: "",
-  timeline: "",
-  userInfo: {
-    gender: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    postalCode: "",
-    city: "",
-    street: "",
-    houseNumber: "",
-  },
-  appointment: {
-    type: "",
-    date: "",
-    time: "",
-  },
-  reasonForSale: "",
-  netRent: "",
-}
 export default function Home() {
   const [cancelConfirmModal, setCancelConfirmModal] = useState(false);
   const [MCFormData, setMCFormData] = useState<MCFormDataType>(defaultMCFormData);
@@ -87,11 +58,21 @@ export default function Home() {
     }
     setCancelConfirmModal(false);
   }
-  
+
   const handleFinish = () => {
     setMCFormData(defaultMCFormData);
     setCurrentStep(2);
     setShowMCForm(false);
+    // APIService.user.create({
+    //   ...MCFormData.user
+    // }).then((res: any) => {
+    //   console.log("user created", res);
+    // })
+    // APIService.mcFormData.create({
+    //   ...MCFormData.user
+    // }).then((res: any) => {
+    //   console.log("user created", res);
+    // })
   }
 
   return (
