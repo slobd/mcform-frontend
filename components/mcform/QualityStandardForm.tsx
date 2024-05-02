@@ -2,6 +2,7 @@ import { CardButtonType, MCFormPropsType } from "@/utils/types";
 import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
+import HelpModal from "../common/HelpModal";
 
 const cardButtonData: CardButtonType[] = [
     { value: "simply", icon: "/assets/icons/mcform/simply.svg", text: "Einfach" },
@@ -34,6 +35,49 @@ const QualityStandardForm = ({ mcFormData, setMcFormData, backToPrevious, contin
                     items={cardButtonData}
                     handleSelect={handleSelect}
                 />
+                <div className="flex flex-row items-center">
+                    <div className="pl-1 text-black text-xs font-semibold opacity-70">Welche Option passt zu mir?</div>
+                    <HelpModal title="Qualitätsstandard" size={"5xl"}>
+                        <div className="grid md:grid-cols-2 gap-x-4 gap-y-10">
+                            <div className="">
+                                <div className="font-semibold mb-2"> Einfach </div>
+                                <div className="font-medium mb-2">
+                                    ne einfache Ausstattung beinhaltet bspw.:
+                                </div>
+                                <div className="font-medium">
+                                    Einfachverglasung, Fußboden mit PVC oder ohne Belag, Stand-WC, Nachtspeicherheizung.
+                                </div>
+                            </div>
+                            <div className="">
+                                <div className="font-semibold mb-2"> Normal </div>
+                                <div className="font-medium mb-2">
+                                    Eine normale Ausstattung beinhaltet bspw.:
+                                </div>
+                                <div className="font-medium">
+                                    Zweifachverglasung, Fußboden mit Linoleum-, Teppich- oder Laminat-Belag, Dusche oder Badewanne, Fern- oder Zentralheizung.
+                                </div>
+                            </div>
+                            <div className="">
+                                <div className="font-semibold mb-2"> Gehoben </div>
+                                <div className="font-medium mb-2">
+                                    Eine gehobene Ausstattung beinhaltet bspw.:
+                                </div>
+                                <div className="font-medium">
+                                    Elektrische Rollläden, Massivholz-, Naturstein- oder Terrazzoboden, zwei Bäder, Fußbodenheizung, Solarkollektoren.
+                                </div>
+                            </div>
+                            <div className="">
+                                <div className="font-semibold mb-2"> Luxus </div>
+                                <div className="font-medium mb-2">
+                                    Eine luxuriöse Ausstattung beinhaltet bspw.:
+                                </div>
+                                <div className="font-medium">
+                                    Spezialverglasung, hochwertiges Parkett oder Edelholzböden, mehrere Bäder.
+                                </div>
+                            </div>
+                        </div>
+                    </HelpModal>
+                </div>
             </div>
             <FormFooter
                 clickPrevious={backToPrevious}

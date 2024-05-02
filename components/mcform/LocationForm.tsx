@@ -21,7 +21,7 @@ const LocationForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNex
                 location="Standortleitung Celle"
             />
             <div className="md:px-12 px-0 md:py-20 py-8">
-                <div>
+                <div className='font-medium'>
                     Wir benötigen Ihre Postleitzahl, um den Wert Ihrer Immobilie besser ermitteln zu können.
                 </div>
                 <InputWithOverlappingLabel

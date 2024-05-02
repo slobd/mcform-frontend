@@ -2,6 +2,7 @@ import { CardButtonType, MCFormPropsType } from "@/utils/types";
 import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
+import HelpModal from "../common/HelpModal";
 
 const cardButtonData: CardButtonType[] = [
     { value: "1", icon: "", text: "1" },
@@ -37,6 +38,11 @@ const RoomCountForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNe
                     items={cardButtonData}
                     handleSelect={handleSelect}
                 />
+                <HelpModal title="Zimmeranzahl">
+                    <div>
+                        Küchen, Bäder und Lagerräume o.ä. werden nicht als Wohnräume gezählt.
+                    </div>
+                </HelpModal>
             </div>
             <FormFooter
                 clickPrevious={backToPrevious}

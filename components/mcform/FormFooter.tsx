@@ -19,7 +19,7 @@ const FormFooter = ({ enablePreviousButton = true, enableNextButton = false, cli
             {enablePreviousButton &&
                 <Button
                     color="transparent"
-                    size="md"
+                    size="lg"
                     onClick={() => clickPrevious()}
                 >
                     <ChevronLeftIcon className="w-5 h-5" />

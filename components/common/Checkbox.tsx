@@ -42,7 +42,7 @@ const Checkbox: NextPage<CheckboxProps> = ({ checked, label, onCheck, theme = "l
                     />
                 )}
             </div>
-            {label && <span className="text-xs text-[#121212] mx-2">{label}</span>}
+            {label && <span className="text-xs text-primary mx-2">{label}</span>}
         </div>
     );
 };
