@@ -1,17 +1,30 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import Button from '../common/Button'
 
-export type ConfirmModalProps = {
+export type ModalProps = {
     open: boolean;
     setOpen: (e: any) => void;
     title?: string;
-    description?: string;
     handler: (e: boolean) => void;
+    children: React.ReactNode;
+    size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
 };
 
-const ConfirmModal = ({ open, setOpen, handler, title, description }: ConfirmModalProps) => {
+const Modal = ({ open, setOpen, handler, title, children, size = "xl" }: ModalProps) => {
+
+    const sizes: Record<string, string> = {
+        "sm": " sm:max-w-sm",
+        "md": " sm:max-w-md",
+        "lg": " sm:max-w-lg",
+        "xl": " sm:max-w-xl",
+        "2xl": " sm:max-w-2xl",
+        "3xl": " sm:max-w-3xl",
+        "4xl": " sm:max-w-4xl",
+        "5xl": " sm:max-w-5xl",
+        "6xl": " sm:max-w-6xl",
+        "7xl": " sm:max-w-7xl",
+    };
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -43,20 +56,14 @@ const ConfirmModal = ({ open, setOpen, handler, title, description }: ConfirmMod
                             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
-                            <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
+                            <Dialog.Panel className={`${sizes[size]} relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:p-6`}>
                                 <Dialog.Title
                                     as="h2"
-                                    className="font-bold leading-7 text-xl mb-4"
+                                    className="font-bold leading-7 text-lg mb-4 pb-5 border-b border-primary/50"
                                 >
                                     {title}
                                 </Dialog.Title>
-                                <Dialog.Title
-                                    as="h3"
-                                    className="text-base font-semibold leading-6 my-8"
-                                >
-                                    {description}
-                                </Dialog.Title>
-                                <div className="absolute right-0 top-0 pr-4 mt-4">
+                                <div className="absolute right-0 top-2 pr-4 mt-4">
                                     <button
                                         type="button"
                                         className="rounded-md bg-white focus:outline-none"
@@ -66,11 +73,8 @@ const ConfirmModal = ({ open, setOpen, handler, title, description }: ConfirmMod
                                         <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                                     </button>
                                 </div>
-                                <div className="flow-root">
-                                    <div className='flex flex-row justify-end items-center gap-4'>
-                                        <Button onClick={() => handler(false)}> Nein </Button>
-                                        <Button className="" color="yellow" onClick={() => handler(true)}> Ja </Button>
-                                    </div>
+                                <div className="py-4 px-2">
+                                    {children}
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
@@ -81,4 +85,4 @@ const ConfirmModal = ({ open, setOpen, handler, title, description }: ConfirmMod
     );
 };
 
-export default ConfirmModal;
+export default Modal;

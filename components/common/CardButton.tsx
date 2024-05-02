@@ -25,7 +25,7 @@ const CardButton = ({ icon, text, onClick }: CardButtonProps) => {
                             height={100}
                         />
                     }
-                    <p className="m-0 max-w-[30ch] text-md font-medium opacity-80 text-center">
+                    <p className="m-0 max-w-[30ch] text-[18px] font-medium text-center">
                         {text}
                     </p>
                 </div>

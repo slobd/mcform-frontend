@@ -2,9 +2,10 @@ import { CardButtonType, MCFormPropsType } from "@/utils/types";
 import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
+import ToolTip from "../common/Tooltip";
 
 const cardButtonData: CardButtonType[] = [
-    { value: "<40", icon: "", text: "<80m²" },
+    { value: "<40", icon: "", text: "<40m²" },
     { value: "40-60", icon: "", text: "40m² - 60m²" },
     { value: "61-80", icon: "", text: "61m² - 80m²" },
     { value: "81-100", icon: "", text: "81m² - 100m²" },
@@ -36,6 +37,11 @@ const LivingSpaceSizeForm = ({ mcFormData, setMcFormData, backToPrevious, contin
                     items={cardButtonData}
                     handleSelect={handleSelect}
                 />
+                <ToolTip title="Wohnfläche">
+                    <div>
+                        Der Wohnbereich (in m²) ergibt sich aus der Summe der Wohnraumflächen des Objektes
+                    </div>
+                </ToolTip>
             </div>
             <FormFooter
                 clickPrevious={backToPrevious}

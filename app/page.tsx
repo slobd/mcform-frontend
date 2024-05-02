@@ -79,7 +79,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white text-primary min-h-screen">
       {!showMCForm &&
         <div className="flex flex-col items-center justify-center md:p-24 p-4">
           <div className="sm:px-6 md:py-24 py-4 md:px-8 px-0">
@@ -115,7 +115,7 @@ export default function Home() {
                 McMakler
               </div>
               <div
-                className="flex flex-row justify-between items-center cursor-pointer"
+                className="flex flex-row justify-between font-medium items-center cursor-pointer"
                 onClick={() => handleCancel()}
               >
                 <span>Schließen</span>

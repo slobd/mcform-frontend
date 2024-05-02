@@ -31,7 +31,7 @@ const FormHeader = ({ title, name, avatar, location, isNote = false }: FormHeade
                     </div>
                 </div>
             }
-            <div className="relative grow bg-gray-100 text-lg font-semibold md:p-6 p-3 w-full">
+            <div className="relative grow bg-gray-100 text-xl font-semibold md:p-6 p-3 w-full">
                 {!isNote && <div className="md:hidden absolute -top-3 left-7 w-0 h-0 border-l-[12px] border-l-transparent border-b-[20px] border-b-gray-100 border-r-[12px] border-r-transparent"></div>}
                 {!isNote && <div className="md:block hidden absolute -left-5 bottom-5 w-0 h-0 border-b-[12px] border-b-transparent border-r-[20px] border-r-gray-100 border-t-[12px] border-t-transparent "></div>}
                 {title}
