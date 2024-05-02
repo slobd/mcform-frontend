@@ -125,7 +125,7 @@ export default function Home() {
             <div className="grow">
               <div className="" aria-hidden="true">
                 <div className="overflow-hidden bg-gray-200">
-                  <div className="h-2 rounded-sm bg-gray-600" style={{ width: currentStep * 100 / totalStep + "%" }} />
+                  <div className="h-2 rounded-sm bg-primary" style={{ width: currentStep * 100 / totalStep + "%" }} />
                 </div>
               </div>
             </div>
