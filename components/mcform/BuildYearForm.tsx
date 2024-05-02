@@ -2,7 +2,7 @@ import { CardButtonType, MCFormPropsType } from "@/utils/types";
 import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import CardButtonGroup from "../common/CardButtonGroup";
-import ToolTip from "../common/Tooltip";
+import HelpModal from "../common/HelpModal";
 
 const cardButtonData: CardButtonType[] = [
     { value: "<1918", icon: "", text: "bis 1918" },
@@ -38,11 +38,11 @@ const BuildYearForm = ({ mcFormData, setMcFormData, backToPrevious, continueToNe
                     items={cardButtonData}
                     handleSelect={handleSelect}
                 />
-                <ToolTip title="Baujahr">
+                <HelpModal title="Baujahr">
                     <div>
                         Als Baujahr gilt das Jahr der ersten Bezugsfertigstellung des Objektes, unabhängig von Sanierungen.
                     </div>
-                </ToolTip>
+                </HelpModal>
             </div>
             <FormFooter
                 clickPrevious={backToPrevious}

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Button from "../common/Button";
+import Button from "./Button";
 import { QuestionMarkCircleIcon } from "@heroicons/react/16/solid";
 import Modal from "./Modal";
 
-export type ToolTipProps = {
+export type HelpModalProps = {
     title: string;
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
     children?: React.ReactNode;
 };
 
-const ToolTip = ({ title, size, children }: ToolTipProps) => {
+const HelpModal = ({ title, size, children }: HelpModalProps) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -34,4 +34,4 @@ const ToolTip = ({ title, size, children }: ToolTipProps) => {
     );
 };
 
-export default ToolTip;
+export default HelpModal;
